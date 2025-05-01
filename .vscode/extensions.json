@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "lfs.vscode-emacs-friendly",
+        "llvm-vs-code-extensions.vscode-clangd",
+        "ms-vscode.cpptools",
+        "xen.ccpp-theme"
+    ]
+}
