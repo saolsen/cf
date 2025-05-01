@@ -15,15 +15,16 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++",
+            "command": "gcc",
             "args": [
                 "-Wall",
                 "-Wextra",
                 "-Wconversion",
+                "-std=c11",
                 "-static",
+                "-fno-asm",
+                "-lm",
                 "-g",
-                "-std=c++23",
-                "-lstdc++exp",
                 "-o",
                 "${workspaceFolder}\\build\\${relativeFileDirname}\\${fileBasenameNoExtension}.exe",
                 "${file}",
@@ -32,7 +33,9 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": ["$gcc"],
+            "problemMatcher": [
+                "$gcc"
+            ],
             "dependsOn": "builddir",
         },
     ]

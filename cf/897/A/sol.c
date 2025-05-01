@@ -22,7 +22,7 @@ int main(void) {
   char s[102];
   fgets(s, 102, stdin);
   assert(s[n] == '\n');
-  line[n] = NULL;
+  line[n] = '\0';
   fprintf(stderr, "%s\n", s);
 
   // l r c1 c2
