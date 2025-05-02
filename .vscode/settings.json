@@ -1,4 +1,5 @@
 {
     "editor.formatOnSave": true,
-    "cppcheck-turbo.path": "cpp.exe"
+    "cppcheck-turbo.path": "cpp.exe",
+    "editor.tabSize": 2
 }

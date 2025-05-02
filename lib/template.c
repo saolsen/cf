@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 char buf[1024];
 
@@ -11,6 +12,7 @@ int main(void) {
 #endif
   char *line = fgets(buf, sizeof(buf) / sizeof(buf[0]), stdin);
   assert(line != NULL);
+  line[strcspn(line, "\n")] = 0;
   fprintf(stderr, "%s", line);
   long n = strtol(line, &line, 10);
   long m = strtol(line, &line, 10);
