@@ -4,20 +4,35 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "gcc",
-            "args": [
-                "-Wall",
-                "-Wextra",
-                "-Wconversion",
-                "-std=c11",
-                "-static",
-                "-fno-asm",
-                "-lm",
-                "-g",
-                "-o",
-                "${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe",
-                "${file}",
-            ],
+            "osx": {
+                "command": "gcc-14",
+                "args": [
+                    "-Wall",
+                    "-Wextra",
+                    "-Wconversion",
+                    "-std=c11",
+                    "-g",
+                    "-o",
+                    "${workspaceFolder}/build/${fileBasenameNoExtension}",
+                    "${file}",
+                ]
+            },
+            "windows": {
+                "command": "gcc",
+                "args": [
+                    "-Wall",
+                    "-Wextra",
+                    "-Wconversion",
+                    "-std=c11",
+                    "-static",
+                    "-fno-asm",
+                    "-lm",
+                    "-g",
+                    "-o",
+                    "${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe",
+                    "${file}",
+                ],
+            },
             "group": {
                 "kind": "build",
                 "isDefault": true

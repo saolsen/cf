@@ -1,13 +1,13 @@
-#define _CRT_SECURE_NO_DEPRECATE
+#define _CRT_SECURE_NO_DEPRECATE // disable freopen error on windows
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+char buf[1024];
+
 #define dbg(M, ...)                                                            \
   fprintf(stderr, "[dbg: %i] " M "\n", __LINE__, ##__VA_ARGS__)
-
-char buf[1024];
 
 int main(void) {
 #ifndef ONLINE_JUDGE
@@ -17,13 +17,13 @@ int main(void) {
   assert(line != NULL);
   line[strcspn(line, "\n")] = 0;
   assert(strlen(line) == 26);
-  char *kb1 = _strdup(line);
+  char *kb1 = strdup(line);
 
   line = fgets(buf, sizeof(buf) / sizeof(buf[0]), stdin);
   assert(line != NULL);
   line[strcspn(line, "\n")] = 0;
   assert(strlen(line) == 26);
-  char *kb2 = _strdup(line);
+  char *kb2 = strdup(line);
 
   char key_map[128] = {};
   for (size_t i = 0; i < 26; i++) {
