@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define dbg(M, ...)                                                            \
+  fprintf(stderr, "[dbg: %i] " M "\n", __LINE__, ##__VA_ARGS__)
+
 char buf[1024];
 
 int main(void) {
@@ -13,9 +16,10 @@ int main(void) {
   char *line = fgets(buf, sizeof(buf) / sizeof(buf[0]), stdin);
   assert(line != NULL);
   line[strcspn(line, "\n")] = 0;
-  fprintf(stderr, "%s", line);
+  dbg("%s", line);
   long n = strtol(line, &line, 10);
   long m = strtol(line, &line, 10);
-  fprintf(stderr, "%ld %ld\n", n, m);
+  dbg("%ld %ld", n, m);
+  printf("result\n");
   return 0;
 }

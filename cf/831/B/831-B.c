@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define dbg(M, ...)                                                            \
+  fprintf(stderr, "[dbg: %i] " M "\n", __LINE__, ##__VA_ARGS__)
+
 char buf[1024];
 
 int main(void) {
@@ -32,7 +35,7 @@ int main(void) {
   char *word = fgets(buf, sizeof(buf) / sizeof(buf[0]), stdin);
   assert(word != NULL);
   word[strcspn(word, "\n")] = 0;
-  fprintf(stderr, "%s\n", word);
+  dbg("%s\n", word);
 
   for (size_t i = 0; i < strlen(word); i++) {
     if (word[i] >= 'A' && word[i] <= 'Z') {
