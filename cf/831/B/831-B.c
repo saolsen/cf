@@ -27,7 +27,7 @@ int main(void) {
     key_map[(size_t)(kb1[i])] = kb2[i];
   }
 
-  size_t cap_offset = 'a' - 'A';
+  char cap_offset = 'a' - 'A';
 
   char *word = fgets(buf, sizeof(buf) / sizeof(buf[0]), stdin);
   assert(word != NULL);
